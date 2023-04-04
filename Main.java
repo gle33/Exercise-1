@@ -1,12 +1,15 @@
-import javax.swing.*;  
+import javax.swing.*; // import swing package
 public class Main{
     public static void main(String[] args){
-        JFrame f=new JFrame();//creating instance of JFrame  
-        JButton b=new JButton("click");//creating instance of JButton  
-        b.setBounds(130,100,100, 40);//x axis, y axis, width, height   
-        f.add(b);//adding button in JFrame   
-        f.setSize(400,500);//400 width and 500 height  
-        f.setLayout(null);//using no layout managers  
-        f.setVisible(true);//making the frame visible  
+        JFrame main_frame = new JFrame(); // make window
+        main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        main_frame.setSize(400,400); // set default size of window
+        JButton exit_button = new JButton("Exit"); // make button
+        JButton verify_button = new JButton("Verify");
+        exit_button.setSize(10,10);
+        verify_button.setSize(10,10);
+        main_frame.getContentPane().add(exit_button); // add button to frame
+        main_frame.getContentPane().add(verify_button);
+        main_frame.setVisible(true); // make window visible
     }
 }
