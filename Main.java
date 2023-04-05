@@ -23,6 +23,10 @@ public class Main{
         main_frame.add(invalid_input);
         invalid_input.setVisible(false);
 
+        JLabel prompt = new JLabel("Enter an integer: ");
+        prompt.setBounds(500, 50, 200, 25);
+        main_frame.add(prompt);
+
         JTextField user_input = new JTextField();
         user_input.setBounds(500, 100, 200, 25);
 
