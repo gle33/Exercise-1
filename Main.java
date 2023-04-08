@@ -62,6 +62,7 @@ public class Main{
         main_frame.add(verify_button); // add button to frame
         main_frame.add(exit_button);
         main_frame.setLayout(null); // without this the button takes up the entire window xD
+        main_frame.setResizable(false);
         main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         main_frame.setVisible(true); // make window visible
     }
