@@ -1,6 +1,3 @@
-// write a method for when to revalidate the frame?
-// make more efficient when erasing label...?
-
 import java.awt.Color;
 import java.awt.event.*;  // actions for buttons
 import javax.swing.*; // import swing package
@@ -10,7 +7,7 @@ public class Main{
         main_frame.setSize(1000, 500); // set default size of window
 
         JLabel correct_input = new JLabel("It is an integer!");
-        correct_input.setBounds(450, 250, 100, 25);
+        correct_input.setBounds(450, 250, 120, 25);
         correct_input.setBackground(Color.GREEN);
         correct_input.setOpaque(true);
         main_frame.add(correct_input);
@@ -31,27 +28,28 @@ public class Main{
         user_input.setBounds(400, 100, 200, 25);
 
         JButton verify_button = new JButton("Verify"); // make button
-        verify_button.setBounds(300, 150, 100, 60); // x-coord, y-coord, width, height
+        verify_button.setBounds(600, 150, 100, 60); // x-coord, y-coord, width, height
         verify_button.addActionListener(new ActionListener(){ // what occurs if a button is pressed/an action is performed
             public void actionPerformed(ActionEvent e){
                 String user_num_string = user_input.getText(); // whatever user typed in field becomes a string
                 try{
                     int user_num_int = Integer.parseInt(user_num_string); // is user input an int?
+                    correct_input.setText("It is an integer: " + user_num_int);
                     invalid_input.setVisible(false);
                     correct_input.setVisible(true);
-                    main_frame.revalidate();
-                    main_frame.repaint();
                 }
                 catch(NumberFormatException err){
                     correct_input.setVisible(false);
                     invalid_input.setVisible(true);
+                }
+                finally {
                     main_frame.revalidate();
                     main_frame.repaint();
                 }
             }
         });
         JButton exit_button = new JButton("Exit");
-        exit_button.setBounds(600, 150, 100, 60);
+        exit_button.setBounds(300, 150, 100, 60);
         exit_button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 main_frame.dispose();
